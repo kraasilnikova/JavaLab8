@@ -18,18 +18,14 @@ public class ChatServlet extends HttpServlet {
 // Вызвать унаследованную от HttpServlet версию init()
         super.init();
 // Извлечь из контекста карту пользователей и список сообщений
-        activeUsers = (HashMap<String, ChatUser>)
-                getServletContext().getAttribute("activeUsers");
-        messages = (ArrayList<ChatMessage>)
-                getServletContext().getAttribute("messages");
+        activeUsers = (HashMap<String, ChatUser>) getServletContext().getAttribute("activeUsers");
+        messages = (ArrayList<ChatMessage>) getServletContext().getAttribute("messages");
 // Если карта пользователей не определена ...
         if (activeUsers==null) {
 // Создать новую карту
             activeUsers = new HashMap<String, ChatUser>();
-// Поместить еѐ в контекст сервлета,
-// чтобы другие сервлеты могли до него добраться
-            getServletContext().setAttribute("activeUsers",
-                    activeUsers);
+// Поместить еѐ в контекст сервлета, чтобы другие сервлеты могли до него добраться
+            getServletContext().setAttribute("activeUsers", activeUsers);
         }
 // Если список сообщений не определѐн ...
         if (messages==null) {

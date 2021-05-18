@@ -11,8 +11,7 @@ import java.io.IOException;
 public class LogoutServlet extends ChatServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse
-            response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = (String) request.getSession().getAttribute("name");
 // Если в сессии имеется имя пользователя...
         if (name!=null) {
@@ -35,15 +34,15 @@ public class LogoutServlet extends ChatServlet {
 // Сбросить ID сессии в cookie
                 response.addCookie(new Cookie("sessionId", null));
 // Перенаправить на главную страницу
-                response.sendRedirect(response.encodeRedirectURL("/chat/"));
+                response.sendRedirect(response.encodeRedirectURL("/lab_8_war_exploded/"));
             } else {
 // Пользователь пытается аннулировать чужую сессию –
 // не делать ничего
-                response.sendRedirect(response.encodeRedirectURL("lab_8/view.htm"));
+                response.sendRedirect(response.encodeRedirectURL("/lab_8_war_exploded/view.htm"));
             }
         } else {
 // Перенаправить пользователя на главное окно чата
-            response.sendRedirect(response.encodeRedirectURL("/chat/view.htm"));
+            response.sendRedirect(response.encodeRedirectURL("/lab_8_war_exploded/view.htm"));
         }
     }
 }

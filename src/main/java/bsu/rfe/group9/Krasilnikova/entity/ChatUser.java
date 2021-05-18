@@ -3,8 +3,7 @@ package bsu.rfe.group9.Krasilnikova.entity;
 public class ChatUser {
     // Имя пользователя
     private String name;
-    // Последнее время взаимодействия с сервером в количестве микросекунд,
-// прошедших с 1 января 1970 года
+    // Последнее время взаимодействия с сервером в количестве микросекунд, прошедших с 1 января 1970 года
     private long lastInteractionTime;
     // Идентификатор Java-сессии пользователя
     private String sessionId;
