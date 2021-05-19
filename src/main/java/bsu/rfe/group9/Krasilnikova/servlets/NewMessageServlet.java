@@ -2,7 +2,6 @@ package bsu.rfe.group9.Krasilnikova.servlets;
 
 import bsu.rfe.group9.Krasilnikova.entity.ChatMessage;
 import bsu.rfe.group9.Krasilnikova.entity.ChatUser;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,7 @@ public class NewMessageServlet extends ChatServlet {
             ChatUser author = activeUsers.get((String) request.getSession().getAttribute("name"));
             synchronized (messages) {
 // Добавить в список сообщений новое
-                messages.add(new ChatMessage(message, author, Calendar.getInstance().getTimeInMillis()));
+                messages.add(new ChatMessage(message, author, Calendar.getInstance().getTimeInMillis(), Calendar.getInstance().getTime()));
             }
         }
 // Перенаправить пользователя на страницу с формой сообщения

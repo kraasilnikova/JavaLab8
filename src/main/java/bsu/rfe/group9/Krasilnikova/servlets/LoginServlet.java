@@ -65,13 +65,13 @@ public class LoginServlet extends ChatServlet {
         response.setCharacterEncoding("utf8");
 // Получить поток вывода для HTTP-ответа
         PrintWriter pw = response.getWriter();
-        pw.println("<html><head><title>Мега-чат!</title><meta httpequiv='Content-Type' content='text/html; charset=utf-8'/></head>");
+        pw.println("<html><head><title>JAVA_CHAT!</title><meta httpequiv='Content-Type' content='text/html; charset=utf-8'/></head>");
 // Если возникла ошибка - сообщить о ней
         if (errorMessage!=null) {
             pw.println("<p><font color='red'>" + errorMessage + "</font></p>");
         }
 // Вывести форму
-        pw.println("<form action='/lab_8_war_exploded/' method='post'>Введите имя: <input type='text' name='name' value=''><input type='submit' value='Войти в чат'>");
+        pw.println("<form action='/lab_8_war_exploded/' method='post'>Please, enter your username: <input type='text' name='name' value=''><input type='submit' value='Enter the chat'>");
         pw.println("</form></body></html>");
 // Сбросить сообщение об ошибке в сессии
         request.getSession().setAttribute("error", null);
@@ -88,7 +88,7 @@ public class LoginServlet extends ChatServlet {
         String errorMessage = null;
         if (name==null || "".equals(name)) {
 // Пустое имя недопустимо - сообщить об ошибке
-            errorMessage = "Имя пользователя не может быть пустым!";
+            errorMessage = "Username can't be empty!";
         } else {
 // Если ия не пустое, то попытаться обработать запрос
             errorMessage = processLogonAttempt(name, request, response);
@@ -140,7 +140,7 @@ public class LoginServlet extends ChatServlet {
         } else {
 // Сохранѐнное в сессии имя уже закреплено за кем-то другим.
 // Извиниться, отказать и попросить ввести другое имя
-            return "Извините, но имя <strong>" + name + "</strong> уже кем-то занято. Пожалуйста выберите другое имя!";
+            return "Sorry, but the username <strong>" + name + "</strong> already occupied by someone. Please choose another username!";
         }
     }
 }

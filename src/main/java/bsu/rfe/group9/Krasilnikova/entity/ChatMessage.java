@@ -1,5 +1,7 @@
 package bsu.rfe.group9.Krasilnikova.entity;
 
+import java.util.Date;
+
 public class ChatMessage {
     // Текст сообщения
     private String message;
@@ -7,11 +9,14 @@ public class ChatMessage {
     private ChatUser author;
     // Временная метка сообщения (в микросекундах)
     private long timestamp;
-    public ChatMessage(String message, ChatUser author, long timestamp) {
+    private Date calendar;
+
+    public ChatMessage(String message, ChatUser author, long timestamp, Date calendar) {
         super();
         this.message = message;
         this.author = author;
         this.timestamp = timestamp;
+        this.calendar = calendar;
     }
     public String getMessage() {
         return message;
@@ -31,5 +36,6 @@ public class ChatMessage {
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
+    public Date getCertainTime() { return calendar; }
 }
 
